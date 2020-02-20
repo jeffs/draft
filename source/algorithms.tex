@@ -2947,12 +2947,12 @@ namespace std::ranges {
     [[no_unique_address]] I in;
     bool found;
 
-    template <class I2>
+    template<class I2>
       requires convertible_to<const I&, I2>
       constexpr operator in_found_result<I2>() const & {
         return {in, found};
       }
-    template <class I2>
+    template<class I2>
       requires convertible_to<I, I2>
       constexpr operator in_found_result<I2>() && {
         return {std::move(in), found};
