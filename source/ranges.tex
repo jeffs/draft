@@ -41,6 +41,7 @@ namespace std::ranges {
     inline constexpr @\unspec@ crend = @\unspec@;
 
     inline constexpr @\unspec@ size = @\unspec@;
+    inline constexpr @\unspec@ ssize = @\unspec@;
     inline constexpr @\unspec@ empty = @\unspec@;
     inline constexpr @\unspec@ data = @\unspec@;
     inline constexpr @\unspec@ cdata = @\unspec@;
@@ -655,6 +656,29 @@ template<class T> void size(T&&) = delete;
 Whenever \tcode{ranges::size(E)} is a valid expression, its
 type is integer-like.
 \end{note}
+
+\rSec2[range.prim.ssize]{\tcode{ranges::ssize}}
+
+\pnum
+The name \tcode{ssize} denotes
+a customization point object\iref{customization.point.object}.
+The expression \tcode{ranges::ssize(E)}
+for a subexpression \tcode{E} of type \tcode{T}
+is expression-equivalent to:
+
+\begin{itemize}
+\item
+If \tcode{range_difference_t<T>} has width less than \tcode{ptrdiff_t}:
+\begin{codeblock}
+static_cast<ptrdiff_t>(ranges::size(E)); // \ref{range.prim.size}
+\end{codeblock}
+
+\item
+Otherwise:
+\begin{codeblock}
+static_cast<range_difference_t<T>>(ranges::size(E)); // \ref{range.prim.size}
+\end{codeblock}
+\end{itemize}
 
 \rSec2[range.prim.empty]{\tcode{ranges::empty}}
 \pnum
