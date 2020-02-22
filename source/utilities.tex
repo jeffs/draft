@@ -444,11 +444,11 @@ $\tcode{N} \geq 0$.
 \pnum
 The alias template
 \tcode{make_integer_sequence} denotes a specialization of
-\tcode{integer_sequence} with \tcode{N} template non-type arguments.
-The type \tcode{make_integer_sequence<T, N>} denotes the type
+\tcode{integer_sequence} with \tcode{N} non-type template arguments.
+The type \tcode{make_integer_sequence<T, N>} is an alias for the type
 \tcode{integer_sequence<T, 0, 1, ..., N-1>}.
 \begin{note}
-\tcode{make_integer_sequence<int, 0>} denotes the type
+\tcode{make_integer_sequence<int, 0>} is an alias for the type
 \tcode{integer_sequence<int>}.
 \end{note}
 \end{itemdescr}
@@ -541,8 +541,10 @@ constexpr explicit(@\seebelow@) pair();
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{is_default_constructible_v<first_type>} is \tcode{true} and
-\tcode{is_default_constructible_v<second_type>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{is_default_constructible_v<first_type>} is \tcode{true} and
+\item \tcode{is_default_constructible_v<second_type>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -568,8 +570,10 @@ constexpr explicit(@\seebelow@) pair(const T1& x, const T2& y);
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{is_copy_constructible_v<first_type>} is \tcode{true} and
-\tcode{is_copy_constructible_v<second_type>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{is_copy_constructible_v<first_type>} is \tcode{true} and
+\item \tcode{is_copy_constructible_v<second_type>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -592,8 +596,10 @@ template<class U1, class U2> constexpr explicit(@\seebelow@) pair(U1&& x, U2&& y
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{is_constructible_v<first_type, U1>} is \tcode{true} and
-\tcode{is_constructible_v<second_type, U2>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{is_constructible_v<first_type, U1>} is \tcode{true} and
+\item \tcode{is_constructible_v<second_type, U2>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -617,8 +623,10 @@ template<class U1, class U2> constexpr explicit(@\seebelow@) pair(const pair<U1,
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{is_constructible_v<first_type, const U1\&>} is \tcode{true} and
-\tcode{is_constructible_v<second_type, const U2\&>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{is_constructible_v<first_type, const U1\&>} is \tcode{true} and
+\item \tcode{is_constructible_v<second_type, const U2\&>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -640,8 +648,10 @@ template<class U1, class U2> constexpr explicit(@\seebelow@) pair(pair<U1, U2>&&
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{is_constructible_v<first_type, U1>} is \tcode{true} and
-\tcode{is_constructible_v<second_type, U2>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{is_constructible_v<first_type, U1>} is \tcode{true} and
+\item \tcode{is_constructible_v<second_type, U2>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -668,8 +678,10 @@ template<class... Args1, class... Args2>
 \begin{itemdescr}
 \pnum
 \mandates
-\tcode{is_constructible_v<first_type, Args1...>} is \tcode{true} and
-\tcode{is_constructible_v<second_type, Args2...>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{is_constructible_v<first_type, Args1...>} is \tcode{true} and
+\item \tcode{is_constructible_v<second_type, Args2...>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -712,8 +724,10 @@ template<class U1, class U2> constexpr pair& operator=(const pair<U1, U2>& p);
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{is_assignable_v<first_type\&, const U1\&>} is \tcode{true} and
-\tcode{is_assignable_v<second_type\&, const U2\&>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{is_assignable_v<first_type\&, const U1\&>} is \tcode{true} and
+\item \tcode{is_assignable_v<second_type\&, const U2\&>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -732,8 +746,10 @@ constexpr pair& operator=(pair&& p) noexcept(@\seebelow@);
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{is_move_assignable_v<first_type>} is \tcode{true} and
-\tcode{is_move_assignable_v<second_type>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{is_move_assignable_v<first_type>} is \tcode{true} and
+\item \tcode{is_move_assignable_v<second_type>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -760,8 +776,10 @@ template<class U1, class U2> constexpr pair& operator=(pair<U1, U2>&& p);
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{is_assignable_v<first_type\&, U1>} is \tcode{true} and
-\tcode{is_assignable_v<second_type\&, U2>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{is_assignable_v<first_type\&, U1>} is \tcode{true} and
+\item \tcode{is_assignable_v<second_type\&, U2>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -905,8 +923,10 @@ $\tcode{I} < 2$.
 
 \pnum
 \returns
-If \tcode{I} is 0, returns a reference to \tcode{p.first};
-if \tcode{I} is 1, returns a reference to \tcode{p.second}.
+\begin{itemize}
+\item If \tcode{I} is 0, returns a reference to \tcode{p.first}.
+\item If \tcode{I} is 1, returns a reference to \tcode{p.second}.
+\end{itemize}
 \end{itemdescr}
 
 \indexlibrarymember{get}{pair}%
@@ -1375,9 +1395,11 @@ template<class U1, class U2> constexpr explicit(@\seebelow@) tuple(const pair<U1
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{sizeof...(Types)} is 2,
-\tcode{is_constructible_v<$\tcode{T}_0$, const U1\&>} is \tcode{true} and
-\tcode{is_constructible_v<$\tcode{T}_1$, const U2\&>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{sizeof...(Types)} is 2,
+\item \tcode{is_constructible_v<$\tcode{T}_0$, const U1\&>} is \tcode{true}, and
+\item \tcode{is_constructible_v<$\tcode{T}_1$, const U2\&>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -1400,9 +1422,11 @@ template<class U1, class U2> constexpr explicit(@\seebelow@) tuple(pair<U1, U2>&
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{sizeof...(Types)} is 2,
-\tcode{is_constructible_v<$\tcode{T}_0$, U1>} is \tcode{true} and
-\tcode{is_constructible_v<$\tcode{T}_1$, U2>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{sizeof...(Types)} is 2,
+\item \tcode{is_constructible_v<$\tcode{T}_0$, U1>} is \tcode{true}, and
+\item \tcode{is_constructible_v<$\tcode{T}_1$, U2>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -1527,8 +1551,10 @@ template<class... UTypes> constexpr tuple& operator=(const tuple<UTypes...>& u);
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{sizeof...(Types)} equals \tcode{sizeof...(UTypes)} and
-\tcode{is_assignable_v<$\tcode{T}_i$\&, const $\tcode{U}_i$\&>} is \tcode{true} for all $i$.
+\begin{itemize}
+\item \tcode{sizeof...(Types)} equals \tcode{sizeof...(UTypes)} and
+\item \tcode{is_assignable_v<$\tcode{T}_i$\&, const $\tcode{U}_i$\&>} is \tcode{true} for all $i$.
+\end{itemize}
 
 \pnum
 \effects
@@ -1548,8 +1574,10 @@ template<class... UTypes> constexpr tuple& operator=(tuple<UTypes...>&& u);
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{is_assignable_v<$\tcode{T}_i$\&, $\tcode{U}_i$>} is \tcode{true} for all $i$ and
-\tcode{sizeof...(Types)} equals \tcode{sizeof...(UTypes)}.
+\begin{itemize}
+\item \tcode{sizeof...(Types)} equals \tcode{sizeof...(UTypes)} and
+\item \tcode{is_assignable_v<$\tcode{T}_i$\&, $\tcode{U}_i$>} is \tcode{true} for all $i$.
+\end{itemize}
 
 \pnum
 \effects
@@ -1570,9 +1598,11 @@ template<class U1, class U2> constexpr tuple& operator=(const pair<U1, U2>& u);
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{sizeof...(Types)} is 2 and
-\tcode{is_assignable_v<$\tcode{T}_0$\&, const U1\&>} is \tcode{true} and
-\tcode{is_assignable_v<$\tcode{T}_1$\&, const U2\&>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{sizeof...(Types)} is 2 and
+\item \tcode{is_assignable_v<$\tcode{T}_0$\&, const U1\&>} is \tcode{true}, and
+\item \tcode{is_assignable_v<$\tcode{T}_1$\&, const U2\&>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -1593,9 +1623,11 @@ template<class U1, class U2> constexpr tuple& operator=(pair<U1, U2>&& u);
 \begin{itemdescr}
 \pnum
 \constraints
-\tcode{sizeof...(Types)} is 2 and
-\tcode{is_assignable_v<$\tcode{T}_0$\&, U1>} is \tcode{true} and
-\tcode{is_assignable_v<$\tcode{T}_1$\&, U2>} is \tcode{true}.
+\begin{itemize}
+\item \tcode{sizeof...(Types)} is 2 and
+\item \tcode{is_assignable_v<$\tcode{T}_0$\&, U1>} is \tcode{true}, and
+\item \tcode{is_assignable_v<$\tcode{T}_1$\&, U2>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -4058,8 +4090,10 @@ template<class T, class... Args> constexpr explicit variant(in_place_type_t<T>, 
 \begin{itemdescr}
 \pnum
 \constraints
-There is exactly one occurrence of \tcode{T} in \tcode{Types...} and
-\tcode{is_constructible_v<T, Args...>} is \tcode{true}.
+\begin{itemize}
+\item There is exactly one occurrence of \tcode{T} in \tcode{Types...} and
+\item \tcode{is_constructible_v<T, Args...>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -4090,8 +4124,10 @@ template<class T, class U, class... Args>
 \begin{itemdescr}
 \pnum
 \constraints
-There is exactly one occurrence of \tcode{T} in \tcode{Types...} and
-\tcode{is_constructible_v<T, initializer_list<U>\&, Args...>} is \tcode{true}.
+\begin{itemize}
+\item There is exactly one occurrence of \tcode{T} in \tcode{Types...} and
+\item \tcode{is_constructible_v<T, initializer_list<U>\&, Args...>} is \tcode{true}.
+\end{itemize}
 
 \pnum
 \effects
@@ -9958,8 +9994,10 @@ induces a strict weak ordering\iref{alg.sorting} on the pointer values.
 
 \pnum
 \mandates
-\tcode{unique_ptr<T1, D1>::pointer} is implicitly convertible to \tcode{CT} and
-\tcode{unique_ptr<T2, D2>::pointer} is implicitly convertible to \tcode{CT}.
+\begin{itemize}
+\item \tcode{unique_ptr<T1, D1>::pointer} is implicitly convertible to \tcode{CT} and
+\item \tcode{unique_ptr<T2, D2>::pointer} is implicitly convertible to \tcode{CT}.
+\end{itemize}
 
 \pnum
 \returns
@@ -16089,8 +16127,8 @@ the \oldconcept{CopyAssignable} requirements.
 
 \pnum
 \expects
-For any two values \tcode{A} and \tcode{B}
-of the type \tcode{iterator_traits<RandomAccessIterator1>::val\-ue_type},
+Let \tcode{V} be \tcode{iterator_traits<RandomAccessIterator1>::val\-ue_type}.
+For any two values \tcode{A} and \tcode{B} of type \tcode{V},
 if \tcode{pred(A, B) == true}, then \tcode{hf(A) == hf(B)} is \tcode{true}.
 
 \pnum
@@ -16187,8 +16225,8 @@ The value type of \tcode{RandomAccessIterator1} meets the \oldconcept{DefaultCon
 
 \pnum
 \expects
-For any two values \tcode{A} and \tcode{B}
-of the type \tcode{iterator_traits<RandomAccessIterator1>::val\-ue_type},
+Let \tcode{V} be \tcode{iterator_traits<RandomAccessIterator1>::val\-ue_type}.
+For any two values \tcode{A} and \tcode{B} of type \tcode{V},
 if \tcode{pred(A, B) == true}, then \tcode{hf(A) == hf(B)} is \tcode{true}.
 
 \pnum
