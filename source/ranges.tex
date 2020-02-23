@@ -661,24 +661,20 @@ type is integer-like.
 \indexlibraryglobal{ranges::ssize}%
 
 \pnum
-The name \tcode{ssize} denotes
+The name \tcode{ranges::ssize} denotes
 a customization point object\iref{customization.point.object}.
-The expression \tcode{ranges::ssize(E)}
+The expression \tcode{ranges::ssize(\brk{}E)}
 for a subexpression \tcode{E} of type \tcode{T}
 is expression-equivalent to:
 
 \begin{itemize}
 \item
-If \tcode{range_difference_t<T>} has width less than \tcode{ptrdiff_t}:
-\begin{codeblock}
-static_cast<ptrdiff_t>(ranges::size(E)); // \ref{range.prim.size}
-\end{codeblock}
+If \tcode{range_difference_t<T>} has width less than \tcode{ptrdiff_t},
+\tcode{static_cast<ptrdiff_t>(ranges::\linebreak{}size(E))}.
 
 \item
-Otherwise:
-\begin{codeblock}
-static_cast<range_difference_t<T>>(ranges::size(E)); // \ref{range.prim.size}
-\end{codeblock}
+Otherwise,
+\tcode{static_cast<range_difference_t<T>>(ranges::size(E))}.
 \end{itemize}
 
 \rSec2[range.prim.empty]{\tcode{ranges::empty}}
