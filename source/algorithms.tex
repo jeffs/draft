@@ -666,6 +666,9 @@ namespace std {
     void for_each(ExecutionPolicy&& exec,                       // see \ref{algorithms.parallel.overloads}
                   ForwardIterator first, ForwardIterator last, Function f);
 
+  template<class I, class F>
+  using for_each_n_result = in_fun_result<I, F>;
+
   namespace ranges {
     template<input_iterator I, class Proj = identity,
              indirectly_unary_invocable<projected<I, Proj>> Fun>
