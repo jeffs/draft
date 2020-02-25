@@ -1911,9 +1911,9 @@ template<class T> struct tuple_size<const volatile T>;
 \pnum
 Let \tcode{TS} denote \tcode{tuple_size<T>} of the \cv-unqualified type \tcode{T}.
 If the expression \tcode{TS::value} is well-formed
-when treated as an unevaluated operand, then each
+when treated as an unevaluated operand, each
 of the three templates
-meet the \oldconcept{UnaryTypeTrait} requirements\iref{meta.rqmts}
+meets the \oldconcept{UnaryTypeTrait} requirements\iref{meta.rqmts}
 with a base characteristic of
 \begin{codeblock}
 integral_constant<size_t, TS::value>
@@ -1953,7 +1953,7 @@ template<size_t I, class T> struct tuple_element<I, const volatile T>;
 \begin{itemdescr}
 \pnum
 Let \tcode{TE} denote \tcode{tuple_element_t<I, T>} of the \cv-unqualified type \tcode{T}. Then
-each of the three templates meet the \oldconcept{TransformationTrait}
+each of the three templates meets the \oldconcept{TransformationTrait}
 requirements\iref{meta.rqmts} with a member typedef \tcode{type} that names the following
 type:
 \begin{itemize}
@@ -4796,7 +4796,6 @@ template<class T, class... Types>
 \pnum
 \mandates
 The type \tcode{T} occurs exactly once in \tcode{Types}.
-Otherwise, the program is ill-formed.
 
 \pnum
 \effects
